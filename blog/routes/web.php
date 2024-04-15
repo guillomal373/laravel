@@ -7,9 +7,13 @@ use App\Http\Controllers\CursoController;
 //Simple Route
 Route::get('/', HomeController::class);
 
-Route::get('cursos', [CursoController::class, 'index']);
-Route::get('cursos/create', [CursoController::class, 'create']);
-Route::get('cursos/{curso}', [CursoController::class, 'show']);
+
+//grupos de rutas por controlador
+Route::controller(CursoController::class)->group( function () {
+    Route::get('cursos', 'index');
+    Route::get('cursos/create', 'create');
+    Route::get('cursos/{curso}', 'show');
+});
 
 //Route with optional variables with if 
 // Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
