@@ -11,6 +11,14 @@ Working with laravel
 6. Tailwind CSS Intellisense (Estilos con Tailwind)
 7. Alpine.js Intellisense
 
+## Desde Cero
+
+- Creando controlles desde consola
+
+```
+php artisan make:controller HomeController 
+```
+
 ## Ejemplo tablar
 
 - https://www.youtube.com/watch?v=JbAtwtCN8PI&t=205s&ab_channel=Inform%C3%A1ticaDP
