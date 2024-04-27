@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->id();//Integer Unsigned Increment
+            $table->string('name');//varchar
+            $table->string('email')->unique();//varchar único
+            $table->timestamp('email_verified_at')->nullable();//fecha y hora, null si no tiene verificación de email pq puede ser nulo
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->rememberToken();//varchar tamaño 100, se almacena cada vez que el usuario inicia sesión, dos
+            $table->timestamps();//dos columnas created_at, updated_at
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
