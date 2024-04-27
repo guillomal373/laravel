@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();//varchar único
             $table->timestamp('email_verified_at')->nullable();//fecha y hora, null si no tiene verificación de email pq puede ser nulo
             $table->string('password');
+            $table->string('avatar');
             $table->rememberToken();//varchar tamaño 100, se almacena cada vez que el usuario inicia sesión, dos
             $table->timestamps();//dos columnas created_at, updated_at
         });
