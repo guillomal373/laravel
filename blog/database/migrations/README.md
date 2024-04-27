@@ -10,3 +10,6 @@ But if you are already in production environment
 5.2. php artisan migrate:refresh //ejecuta el método DOWN y hace otra vez up de todas las tablas
 Si queremos conservar los datos
 5.3 php artisan make:migration add_avatar_to_users_table //Add one column to a table without destroying the datait also creates another file inside migrations folder with this command add_<column>_to_<table_name>_table
+If i want to modify the type of a column like varchar(255) to varchar (100)
+6. composer require doctrine/dbal //First require doctrine/dbal
+7. php artisan make:migration cambiar_propiedades_to_users_table //verificar este archivo donde se modifican los tipos y nullable de columnas
