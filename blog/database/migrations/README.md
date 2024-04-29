@@ -41,3 +41,9 @@ php artisan migrate:fresh --seed o php artisan migrate --seed// ejecuta fresh o 
 
 C:\xampp\htdocs\laravel\blog\database\factories\CursoFactory.php
 C:\xampp\htdocs\laravel\blog\database\seeders\CursoSeeder.php
+
+## Mutadores - eloquent
+
+- En user Models -> return set:function($value) ucwords(strtolower($value)); //para que se guarde todo Uppercase y Lowercase
+- El get muestra de forma diferente pero no modifica en la base de datos
+- Funciones flecha -> fn

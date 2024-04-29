@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;//para el cast de mayúsculas a minúsculas o algo así
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -43,5 +45,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected function name(): Attribute
+    {
+        return new Attribute(
+
+            //Definición antigua
+            /*get:function($value){
+                return ucwords($value);
+            },set:function($value){
+                return  ucwords(strtolower($value));
+            }*/
+            //Definicion función fecha php, una sola linea y sin return
+            get: fn($value) => ucwords($value),
+            set: fn($value) => ucwords(strtolower($value))
+            
+        );
     }
 }
