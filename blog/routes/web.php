@@ -10,16 +10,7 @@ Route::get('/', HomeController::class);
 
 //grupos de rutas por controlador
 Route::controller(CursoController::class)->group( function () {
-    Route::get('cursos', 'index');
-    Route::get('cursos/create', 'create');
-    Route::get('cursos/{curso}', 'show');
+    Route::get('cursos', 'index')->name('cursos.index'); //listar todos los cursos, el alias es muy bueno pq si cambia la url no hay problema
+    Route::get('cursos/create', 'create')->name('cursos.create'); //
+    Route::get('cursos/{id}', 'show')->name('cursos.show'); //
 });
-
-//Route with optional variables with if 
-// Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
-//     if($categoria){
-//         return "Bienvenido al curso $curso, de la categoria $categoria";
-//     }else{
-//         return "Bienvenido al curso $curso sin categoria";
-//     }
-// });
