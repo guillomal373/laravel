@@ -92,6 +92,20 @@ php artisan make:factory CursoFactory --model=Curso
 C:\xampp\htdocs\laravel\blog\database\factories\CursoFactory.php
 C:\xampp\htdocs\laravel\blog\database\seeders\CursoSeeder.php
 
+## Consultas- eloquent
+
+- Tinker
+```
+$cursos = App\Models\Curso::all(); // devuelve todos los cursos
+$curso = Curso::where('categoria', 'Diseño web')->orderBy('name', 'asc')->first(); //devuelve el registro más reciente
+$cursos = Curso::select('name','descripcion')->get(); //devuelve colección/ARRAY con solo name y descripcipn
+$cursos = Curso::select('name','descripcion')->->orderBy('name as title', 'asc')->get(); //devuelve colección con solo name con alias title y descripcion ordenado de manera ascendente
+$curso = Curso::where('name', 'Necesitabas ')->get();//devuelve un ARRAY curso donde el name es 'Necesitabas ' 
+$curso = Curso::find(5); //devuelve el item con id = 5 
+$curso = Curso::where('id','<=','5')->get(); //devuelve el array de cursos con id <= a 5
+$curso = Curso::where('name','like','%bla%')->get(); //devuelve el array de cursos con name que contenga la palabra bla, adelante o atrás
+```
+
 ## Mutadores - eloquent
 
 - En user Models -> return set:function($value) ucwords(strtolower($value)); //para que se guarde todo Uppercase y Lowercase
