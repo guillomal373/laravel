@@ -8,7 +8,7 @@
     <a href="{{route('cursos.create')}}" class="btn btn-primary">Crear Curso</a>
     <ul>
         @foreach ($cursos as $curso)
-            <li>{{$curso->name}} <span><a href="{{route('cursos.show',$curso->id)}}">ir</a></span> </li> 
+            <li><a href="{{route('cursos.show',$curso->id)}}">{{$curso->name}}</a> </li> 
         @endforeach
     </ul>
   
