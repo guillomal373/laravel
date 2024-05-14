@@ -22,6 +22,15 @@ class CursoController extends Controller
 
     //Store info in $request
     public function store(Request $request){
+
+        //la validación es antes de la creación
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'categoria'=>'required'
+        ]);
+
+        //creación después de la validación
         $curso = new Curso();
         $curso->name = $request->input('name');
         $curso->description = $request->input('description');
