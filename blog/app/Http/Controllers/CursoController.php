@@ -23,9 +23,9 @@ class CursoController extends Controller
     //Store info in $request
     public function store(Request $request){
 
-        //la validación es antes de la creación
+        //la validación es antes de la creación -> https://laravel.com/docs/11.x/validation#available-validation-rules
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|min:3',
             'description'=>'required',
             'categoria'=>'required'
         ]);
@@ -55,6 +55,13 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso){
+
+        //la validación es antes de la creación -> https://laravel.com/docs/11.x/validation#available-validation-rules
+        $request->validate([
+            'name'=>'required|min:3',
+            'description'=>'required',
+            'categoria'=>'required'
+        ]);
 
         $curso->name = $request->name;
         $curso->description = $request->description;

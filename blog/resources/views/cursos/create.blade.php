@@ -12,20 +12,32 @@
         <label>
             Nombre:
             <br>
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{old('name')}}">
         </label>
+        <br>
+        @error('name')
+            <span>*{{$message}}</span><br>
+        @enderror
         <br>
         <label>
             Description:
             <br>
-            <textarea name="description" id="" cols="21" rows="5"></textarea>
+            <textarea name="description" id="" cols="21" rows="5">{{old('description')}}</textarea>
         </label>
+        <br>
+        @error('description')
+            <span>*{{$message}}</span><br>
+        @enderror
         <br>
         <label>
             Categoría:
             <br>
-            <input type="text" name="categoria">
+            <input type="text" name="categoria" value="{{old('categoria')}}">
         </label>
+        <br>
+        @error('categoria')
+            <span>*{{$message}}</span><br>
+        @enderror
         <br>
         <button type="submit">Enviar</button>
     </form>
