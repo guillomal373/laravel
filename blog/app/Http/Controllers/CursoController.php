@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCurso;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 
 class CursoController extends Controller
 {
@@ -21,21 +23,17 @@ class CursoController extends Controller
     }
 
     //Store info in $request
-    public function store(Request $request){
-
-        //la validación es antes de la creación -> https://laravel.com/docs/11.x/validation#available-validation-rules
-        $request->validate([
-            'name'=>'required|min:3',
-            'description'=>'required',
-            'categoria'=>'required'
-        ]);
+    public function store(StoreCurso $request){
 
         //creación después de la validación
         $curso = new Curso();
+
         $curso->name = $request->input('name');
         $curso->description = $request->input('description');
         $curso->categoria = $request->input('categoria');
+
         $curso->save();
+        
         return redirect()->route('cursos.show', [$curso]);
         //return $request->all();
 
@@ -61,6 +59,10 @@ class CursoController extends Controller
             'name'=>'required|min:3',
             'description'=>'required',
             'categoria'=>'required'
+        ],[//opción 2 mensajes validación si no se quiere utilizar el archivo separado en App/request
+            'name.required'=>'El nombre es...'
+        ],[//opción 2 atributos si no se quiere utilizar el archivo separado en App/request
+            'name'=>'Información del cur...'
         ]);
 
         $curso->name = $request->name;
