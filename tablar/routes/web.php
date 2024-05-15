@@ -13,9 +13,9 @@ Auth::routes();
 //Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::controller(HomeController::class)->group( function(){
-//     Route::get('/home', 'index')->name('home');
-// });
+Route::controller(HomeController::class)->group( function(){
+    Route::get('/home', 'index')->name('home');
+});
 
 Route::controller(AsociadoController::class)->group( function(){
     Route::get('/asociados', 'index')->name('asociados.index');
