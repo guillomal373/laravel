@@ -39,7 +39,7 @@ DB_HOST=192.168.1.8
 DB_PORT=1433
 DB_DATABASE=ais
 DB_USERNAME=******_2024
-DB_PASSWORD=******_2024
+DB_PASSWORD='******_2024'
 ```
 
 ## Pasos
@@ -53,15 +53,19 @@ laravel new <nombre_proyecto>
 - SQLServer
 ```
 
----------------------------
+# Error - Microsoft ODBC Driver 17 for SQL Server TCP Provider
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[url](https://es.stackoverflow.com/questions/272535/error-odbc-driver-17-for-sql-server-en-conexion-de-sql-server-con-laravel)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-- **[64 Robots](https://64robots.com)**
+Sql Server Configuration Manager -> Sql Server Network Configuration -> Protocols For -> TCP/IP ->
+
+I changed the following
+
+IpAll
+TCP Dynamic Ports 49226
+TCP Port
+To:
+
+IpAll
+TCP Dynamic Ports
+TCP Port          1433
