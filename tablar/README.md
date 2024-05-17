@@ -14,5 +14,9 @@
     2. npm run dev
 8. php artisan tablar:export-all //[exports](https://tablar.ebuz.xyz/docs/11.0/export)
 ```
-
 - [Installing steps](https://tablar.ebuz.xyz/docs/11.0/export)
+
+## Modals
+
+[CRUD Modals](https://www.youtube.com/watch?v=r8_ekwpwHo0&ab_channel=CoffeewithLaravel)
+ - [Edit modal](https://www.youtube.com/watch?v=LzYqAx0Qh6Y&ab_channel=CoffeewithLaravel)

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AsociadoController;
+use App\Http\Controllers\AssociateController;
 use App\Http\Controllers\HomeController;
+use App\Models\Associate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,8 +18,14 @@ Route::controller(HomeController::class)->group( function(){
     Route::get('/home', 'index')->name('home');
 });
 
-Route::controller(AsociadoController::class)->group( function(){
+Route::get('asociado', function(){
+    return Associate::get();
+});
+
+Route::controller(AssociateController::class)->group( function(){
     Route::get('/asociados', 'index')->name('asociados.index');
+    //Route::put('asociados/{associate}', 'asociados.update')->name('cursos.update'); //método put mejor para actualizar
+    //route('associates.update', $associate->id)
 });
 
 /*Route::controller(CursoController::class)->group( function () {
