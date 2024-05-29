@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -43,5 +45,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //Mutadores y Accesores
+    
+    protected function name():Attribute{
+        return new Attribute(
+            set: function($value){//Mutador: Se guarde en base de datos el name todo en minúscula
+                return strtolower($value);
+            },
+            get: function($value){//Accesor: Trae el nombre con la primera letra en mayúscula
+                return ucwords($value);
+            }
+        );
     }
 }
