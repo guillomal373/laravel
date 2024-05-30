@@ -1,4 +1,5 @@
 {{-- <form action="{{route('associates.update', $associate->id)}}" method="post" enctype="multipart/form-data"> --}}
+<div>{{$associate}}</div>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="modal modal-blur fade" id="modal-associate-edit-report" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -28,7 +29,7 @@
                                 <label class="form-label">Identificación</label>
                                 <div class="input-group input-group-flat">
                                 <span class="input-group-text"> </span>
-                                    <input type="text" class="form-control ps-0" autocomplete="off" placeholder="Digite su identificación" value="324750510">
+                                    <input type="text" class="form-control ps-0" autocomplete="off" placeholder="Digite su identificación" value="{{$associate->id_number}}">
                                 </div>
                             </div>
                         </div>
@@ -37,13 +38,13 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Primer nombre</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Digite su primer nombre" value="Junior Gislason">
+                                <input type="text" class="form-control" name="example-text-input" placeholder="Digite su primer nombre" value="{{$associate->first_name}}">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Otros nombres</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Digite otros nombres" value="Evan Hills">
+                                <input type="text" class="form-control" name="example-text-input" placeholder="Digite otros nombres" value="{{$associate->other_names}}">
                             </div>
                         </div>
                     </div>
@@ -51,13 +52,13 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Primer apellido</label>
-                        <input type="text" class="form-control" name="example-text-input" placeholder="Digite su primer apellido" value="Gusikowski">
+                        <input type="text" class="form-control" name="example-text-input" placeholder="Digite su primer apellido" value="{{$associate->first_lastname}}">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Otros apellidos</label>
-                        <input type="text" class="form-control" name="example-text-input" placeholder="Digite otros apellidos" value="Erdman">
+                        <input type="text" class="form-control" name="example-text-input" placeholder="Digite otros apellidos" value="{{$associate->other_lastnames}}">
                             </div>
                         </div>
                     </div>
@@ -73,8 +74,8 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label class="form-label">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" placeholder="Digite su fecha de nacimiento" value="2024-05-17">
+                                <label class="form-label">Fecha de nacimiento {{$associate->created_at}}</label>
+                                <input type="date" class="form-control" placeholder="Digite su fecha de nacimiento" value="{{$associate->created_at}}">
                             </div>
                         </div>
                     </div>

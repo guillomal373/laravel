@@ -62,4 +62,12 @@ class Associate extends Model
     {
         $this->attributes['first_name'] = strtoupper($value);
     }
+
+    // protected function created_at():Attribute{
+    //     return new Attribute(
+    //         get: fn($value) => $this->attributes['created_at']
+    //     );
+    // }
+
+
 }

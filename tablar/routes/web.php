@@ -24,6 +24,13 @@ Route::get('asociado', function(){
 
 Route::controller(AssociateController::class)->group( function(){
     Route::get('/asociados', 'index')->name('asociados.index');
+    Route::get('/asociados/create', 'create')->name('asociados.create');//formulario de crear un asociado
+    Route::post('/asociados', 'store')->name('asociados.store');//post para crear un nuevo registro de asociado
+    
+    Route::get('/asociados/{id}', 'show')->name('asociados.show');
+    Route::get('/asociados/{asociado}/edit', 'edit')->name('asociados.edit');
+    //Route::get('/asociados/create', 'create')->name('asociados.create');
+    //Route::post('/asociados', 'store')->name('asociados.store');
     //Route::put('asociados/{associate}', 'asociados.update')->name('cursos.update'); //método put mejor para actualizar
     //route('associates.update', $associate->id)
 });
