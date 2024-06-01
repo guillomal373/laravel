@@ -1,0 +1,1 @@
+<div>{{$associate}}</div>

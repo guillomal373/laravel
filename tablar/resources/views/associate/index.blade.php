@@ -112,7 +112,7 @@
                                         <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                                         <td><span class="text-muted">{{$associate->id}}-{{$associate->id_number}}</span></td>
                                         {{-- <td><a data-bs-toggle="modal" data-bs-target="#modal-report" href="invoice.html" class="text-reset" tabindex="-1">{{$associate->first_name}}</a></td> --}}
-                                        <td><a data-bs-toggle="modal" data-bs-target="#modal-associate-edit-report" class="text-reset" tabindex="-1">{{$associate->first_name.' '.$associate->first_lastname}}</a></td>
+                                        <td><a data-bs-toggle="modal" data-bs-target="#modal-associate-edit" class="text-reset" tabindex="-1">{{$associate->first_name.' '.$associate->first_lastname}}</a></td>
                                         <td>{{$associate->gender}}</td>
                                         <td> <span class="badge me-1 {{$associate->status == 'Activo' ? 'bg-success' : 'bg-danger'}} "></span> {{$associate->status}} </td>
                                         <td class="text-end">
@@ -133,8 +133,8 @@
                                                         <path d="M3 3l18 18" />
                                                       </svg> <span>Desactivar</span>
                                                 </a>
-                                                {{-- <a class="dropdown-item" href="{{route('asociados.show', $associate->id)}}"> --}}
-                                                    <a class="dropdown-item" href="{{route('asociados.edit', $associate)}}">
+                                                <a class="dropdown-item" href="{{route('asociados.edit', $associate)}}">
+                                                    {{-- <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-associate-edit"> --}}
                                                     <svg xmlns="http://www.w3.org/2000/svg" margin-right="5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                         <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -158,42 +158,7 @@
                             </table>
                         </div>
                         <div class="card-footer d-flex align-items-center">
-                            {{-- <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span>
-                                entries</p> --}}
-                            {{-- <ul class="pagination m-0 ms-auto">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <polyline points="15 6 9 12 15 18"/>
-                                        </svg>
-                                        prev
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                             stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <polyline points="9 6 15 12 9 18"/>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul> --}}
-                            
                              {!! $associates->links('tablar::pagination') !!}
-                            
-
                         </div>
                     </div>
                 </div>

@@ -46,16 +46,34 @@ class AssociateController extends Controller
         
         $associate->save();
         
-        return redirect()->route('asociados.show', $associate);
-        // return redirect()->route('asociados.index');
+        //return redirect()->route('asociados.show', $associate);
+        return redirect()->route('asociados.index');
     }
 
     public function show($id){
         $associate = Associate::find($id);
+        return view('associate.show', compact('associate'));
+    }
+    public function edit($id){
+        $associate = Associate::find($id);
         return view('associate.modal-edit', compact('associate'));
     }
-    public function edit(Associate $associate){
-        $associate = Associate::find($associate);
-        return view('associate.modal-edit', compact('associate'));
+
+    public function update(Request $request){
+
+        $associate =  Associate::find($request->id);
+
+        $associate->id_type = $request->id_type;
+        $associate->id_number = $request->id_number;
+        $associate->first_name = $request->first_name;
+        $associate->other_names = $request->other_names;
+        $associate->first_lastname = $request->first_lastname;
+        $associate->other_lastnames = $request->other_lastnames;
+        $associate->gender = $request->gender;
+        $associate->status = $request->status;
+
+        $associate->save();
+
+        return redirect()->route('asociados.index');
     }
 }
